@@ -1,5 +1,6 @@
 package com.suimz.open.chatgptweb.java.bean.req;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
@@ -18,6 +19,11 @@ public class ChatProcessReq {
     private String systemMessage;
 
     private Options options;
+
+    private Double temperature;
+
+    @JsonProperty(value = "top_p")
+    private Double topP;
 
     @Data
     public static class Options {

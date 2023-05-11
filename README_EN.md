@@ -17,7 +17,7 @@ docker run \
   -it -d \
   --name chatgpt-web-java \
   -p 8080:8080 \
-  hubsuimz/chatgpt-web-java:0.0.1-full \
+  hubsuimz/chatgpt-web-java:0.0.2-full \
   --app.openai-api-key=YourApiKey
 ```
 
@@ -53,6 +53,7 @@ This is a version comparison table based on [ChatGPT-Web] at the time of the dev
 
 | ChatGPT-Web-Java | ChatGPT-Web |
 |------------------|-------------|
+| 0.0.2            | 2.11.0      |
 | 0.0.1            | 2.10.9      |
 
 ## Project dependencies

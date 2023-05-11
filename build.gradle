@@ -11,9 +11,9 @@ sourceCompatibility = '11'
 
 repositories {
 	// 阿里仓库镜像, 中国用户可以打开此项加速依赖的下载
-	// maven {
-	// 	url 'https://maven.aliyun.com/repository/public/'
-	// }
+	 maven {
+	 	url 'https://maven.aliyun.com/repository/public/'
+	 }
 	mavenLocal()
 	mavenCentral()
 }
@@ -42,7 +42,6 @@ dependencies {
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 	annotationProcessor 'org.projectlombok:lombok'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
 configurations {

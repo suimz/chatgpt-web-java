@@ -3,6 +3,8 @@ package com.suimz.open.chatgptweb.java.core.conf;
 import com.suimz.open.chatgptweb.java.core.interceptor.AuthInterceptor;
 import com.suimz.open.chatgptweb.java.core.properties.AppProperties;
 import javax.annotation.Resource;
+
+import org.jetbrains.annotations.NotNull;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -23,7 +25,7 @@ public class MvcConfig implements WebMvcConfigurer {
     private ResourceLoader resourceLoader;
 
     @Override
-    public void addViewControllers(ViewControllerRegistry registry) {
+    public void addViewControllers(@NotNull ViewControllerRegistry registry) {
         org.springframework.core.io.Resource resource = resourceLoader.getResource("classpath:/static/index.html");
         if (resource.exists()) {
             registry.addViewController("/").setViewName("forward:/index.html");
@@ -34,7 +36,17 @@ public class MvcConfig implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
         // Client Authentication
         registry.addInterceptor(new AuthInterceptor(appProperties)).addPathPatterns("/**")
-        .excludePathPatterns("/", "/api/verify", "/api/session", ".+\\.(html|css|js|gif|jpg|jpeg|png|ico|svg|ttf|woff|woff2)$");
+        .excludePathPatterns("/", "/api/verify", "/api/session"
+                ,"/**/**.html"
+                ,"/**/**.js"
+                ,"/**/**.css"
+                ,"/**/**.ico"
+                ,"/**/**.png"
+                ,"/**/**.jpg"
+                ,"/**/**.svg"
+                ,"/**/**.gif"
+                ,"/**/**.webmanifest"
+        );
     }
 
 }
